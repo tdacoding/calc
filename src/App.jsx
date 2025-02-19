@@ -15,10 +15,12 @@ export const App = () => {
 					setResultedFlag(false);
 					setOperand1(key);
 				} else {
-					setOperand1((oper) => oper + key);
+					operand1 === '0'
+						? setOperand1(key)
+						: setOperand1((oper) => oper + key);
 				}
 			} else {
-				setOperand2((oper) => oper + key);
+				operand2 === '0' ? setOperand2(key) : setOperand2((oper) => oper + key);
 			}
 		} else {
 			operatorKeyPressed(key);
@@ -33,12 +35,12 @@ export const App = () => {
 			setResultedFlag(false);
 			return;
 		}
-		if (key === '+' && !operator) {
+		if (key === '+' && !operand2) {
 			setOperator('+');
 			setResultedFlag(false);
 			return;
 		}
-		if (key === '-' && !operator) {
+		if (key === '-' && !operand2) {
 			setOperator('-');
 			setResultedFlag(false);
 			return;
