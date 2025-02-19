@@ -44,7 +44,10 @@ export const App = () => {
 			return;
 		}
 		if (key === '=' && operator) {
-			const res = eval(operand1 + operator + operand2);
+			const res =
+				operator === '+'
+					? parseInt(operand1) + parseInt(operand2)
+					: parseInt(operand1) - parseInt(operand2);
 			setResultedFlag(true);
 			setOperator('');
 			setOperand1(res);
