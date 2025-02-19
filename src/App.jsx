@@ -10,9 +10,16 @@ export const App = () => {
 
 	const keyPressed = (key) => {
 		if (!Number.isNaN(+key)) {
-			!operator
-				? setOperand1((oper) => oper + key)
-				: setOperand2((oper) => oper + key);
+			if (!operator) {
+				if (resultedFlag) {
+					setResultedFlag(false);
+					setOperand1(key);
+				} else {
+					setOperand1((oper) => oper + key);
+				}
+			} else {
+				setOperand2((oper) => oper + key);
+			}
 		} else {
 			operatorKeyPressed(key);
 		}
