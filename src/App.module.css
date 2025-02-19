@@ -26,6 +26,11 @@
 	width: 100%;
 }
 
+.spanDisplay.result {
+	color: green;
+	font-weight: bold;
+}
+
 .buttons-container {
 	display: grid;
 	padding: 40px 20px;
